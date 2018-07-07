@@ -101,7 +101,7 @@ if __name__ == '__main__':
 			for i in sports:
 				print "%s:\t%s" % (i, sports[i])
 			workout_type = False
-		elif not workout_type.isdigit() or not sports.has_key(int(workout_type)):
+		elif not workout_type.isdigit() or not int(workout_type) in sports:
 			print "Key not found"
 			workout_type = False
 		else:

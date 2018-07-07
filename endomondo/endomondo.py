@@ -167,7 +167,7 @@ class MobileApi(object):
 		'''
 		try:
 			data = r.json()
-			if data.has_key('error'):
+			if 'error' in data:
 				logging.warning('Error loading data from Endomondo. Type: %s', data['error'].get('type'))
 
 				err_type = data['error'].get('type')
@@ -252,7 +252,7 @@ class MobileApi(object):
 		kwargs.setdefault('deflate', 'true')
 
 
-		if account_info.has_key('date_of_birth'):
+		if 'date_of_birth' in account_info:
 			account_info['date_of_birth'] = datetime_to_str(account_info.get('date_of_birth'))
 
 		data = json.dumps(account_info)
@@ -316,7 +316,7 @@ class MobileApi(object):
 		r = self.make_request(URL_WORKOUT_GET, kwargs)
 		data = r.json()
 
-		if data.has_key('error'):
+		if 'error' in data:
 			err_type = data['error'].get('type')
 			if err_type == 'NOT_FOUND':
 				raise NotFoundException('Item ``%s`` was not found in Endomondo.' % kwargs['workoutId'])

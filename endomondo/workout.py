@@ -158,7 +158,7 @@ class Workout(object):
 
 		properties.setdefault('start_time', datetime.utcnow())
 
-		if properties.has_key('sport'):
+		if 'sport' in properties:
 			properties.setdefault('name', sports.get(properties['sport']))
 
 		for key in properties:

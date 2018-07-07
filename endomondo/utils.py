@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from datetime import datetime, tzinfo
-import gzip, StringIO
+import gzip
+from six import StringIO
+from six.moves import xrange
 
 def str_to_datetime(date):
 	''' Convert string presentation into datetime object.
